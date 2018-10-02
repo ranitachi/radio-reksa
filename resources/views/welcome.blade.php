@@ -66,7 +66,7 @@
     </head>
     <body>
         <center>
-            <img src="{{asset('images/staytuned.png')}}" style="height:650px;width:auto">
+            <img src="{{asset('images/logo-radio.jpeg')}}" style="">
         </center>
         {{-- <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
