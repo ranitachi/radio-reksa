@@ -35,7 +35,7 @@ body{ background:url(../images/bg1.jpg) #000; border:0; font: 12px Arial, Helvet
 .carousel-box ul li { float:left; display: inline-block; padding:0px 0px 0px 0px; position:relative; width:300px; overflow:hidden; padding-right:20px }
 
 /* ============================= header ====================== */
-.top1{min-height: 40px; background: #170b23; margin-bottom: 20px;}
+.top1{min-height: 40px; background: #0b47aa; margin-bottom: 20px;}
 
 header{position: relative; z-index: 1; float: left;}
 
@@ -67,22 +67,27 @@ header{position: relative; z-index: 1; float: left;}
 
 
 /* ============================= footer ====================== */
-.bot1{background: #502241; padding-top: 20px; padding-bottom: 30px;}
+.bot1{
+	background: #008dcf url('../images/world-map.png') no-repeat; 
+	padding-top: 20px; padding-bottom: 30px;
+}
 
 .bot1_block{padding-left: 20px; padding-right: 20px;}
 
 .bot1_title{font-family: 'Open Sans'; font-weight: 700; font-size: 14px; line-height: 20px; color: #fff; text-transform: uppercase; padding-top: 15px; padding-bottom: 15px;}
 
 .ul0{ padding: 0; margin: 0; list-style: none;}
-.ul0 > li { padding:5px 0px 5px 0px; margin: 0px 0px 0px 0px; font-family: 'Open Sans'; font-size: 12px; font-weight: 400; line-height: 20px; color: #ff9d7c; border-bottom: 1px solid #603752;}
-.ul0 > li a{color:#ff9d7c; text-decoration: none; display: block; background: url(../images/li_st0.png) right center no-repeat;}
+.ul0 > li { padding:5px 0px 5px 0px; margin: 0px 0px 0px 0px; font-family: 'Open Sans'; font-size: 12px; font-weight: 400; line-height: 20px; color: #022d74; border-bottom: 1px solid #0b47aa;}
+.ul0 > li a{color:#022d74; text-decoration: none; display: block; background: url(../images/li_st0.png) right center no-repeat;font-weight: 600;
+}
 .ul0 > li a:hover{color:#fff; text-decoration: none; background-image:url(../images/li_st0_over.png);  }
 
 
-footer{position: relative; z-index: 1; background: #36122a; padding-top: 15px; padding-bottom: 15px; }
 
-.copyright{line-height: 20px; color: #816979; float: left;}
-.copyright2{line-height: 20px; color: #816979; float: right;}
+footer{position: relative; z-index: 1; background: #0b47aa; padding-top: 15px; padding-bottom: 15px; }
+
+.copyright{line-height: 20px; color: #fff; float: left;}
+.copyright2{line-height: 20px; color: #fff; float: right;}
 .copyright2 a{color: #b284a3; text-decoration: underline; text-transform: uppercase;}
 .copyright2 a:hover{color: #fff; text-decoration: none;}
 
@@ -107,6 +112,15 @@ transition: color 0.3s ease-out; -moz-transition: color 0.3s ease-out; -webkit-t
 
 .sub-menu ul { position: absolute; display: none; left: 0px; top: 54px; list-style: none; zoom: 1; z-index: 109; margin: 0; padding:0px; background: #d8d8d8; text-align: left; }
 .sub-menu li { margin: 0; position: relative; zoom: 1; display: block; border-top: 1px solid #fefdfe; border-bottom: 1px solid #d0ced1;}
+.sub-menu li.active
+{
+	color:#fff; text-decoration: none; background: #706b71;
+}
+.sub-menu li.active a
+{
+	color:#fff;
+	text-shadow: unset;
+}
 .sub-menu li:first-child{border-top: none;}
 .sub-menu li:last-child{border-bottom: none;}
 .sub-menu li a{display: block; position: relative; font-family:'Open Sans'; font-weight: 700; font-size: 12px; line-height: 20px; color: #706b71; text-decoration: none; padding: 4px 40px 4px 20px; text-shadow: 0px 1px 0px #fff; text-transform: uppercase;
@@ -134,7 +148,7 @@ transition: all 0.3s ease-out; -moz-transition: all 0.3s ease-out; -webkit-trans
 /* ============================= search-form ====================== */
 .search-form-wrapper{float: right;}
 .navbar-form { float: left; position:relative; z-index: 11; margin:0px 0px 0 0 ; padding: 0; }
-.navbar-form input { width: 110px; height: 20px; font-size: 12px; line-height: 20px; color:#7f7284; background: #21172a; border: none; border: 3px solid #2d203a; margin: 0; padding: 7px 50px 7px 10px; -moz-box-shadow: inset  none; -webkit-box-shadow: none; box-shadow: none; border-radius:0px; -moz-border-radius:0px; -webkit-border-radius:0px;}
+.navbar-form input { width: 110px; height: 20px; font-size: 12px; line-height: 20px; color:#0b47aa; background: #008dcf; border: none; border: 3px solid #0b47aa; margin: 0; padding: 7px 50px 7px 10px; -moz-box-shadow: inset  none; -webkit-box-shadow: none; box-shadow: none; border-radius:0px; -moz-border-radius:0px; -webkit-border-radius:0px;}
 .navbar-form input:focus {color: #fff; -moz-box-shadow: inset  none; -webkit-box-shadow: none; box-shadow: none; border-color: #cec0d4;}
 .navbar-form a {text-decoration: none; margin: 0; display: inline-block; width: 42px; height: 28px; background: url(../images/search.png) left top no-repeat; position:absolute; right:0; top: 6px; }
 .navbar-form a:hover { background-position: right;}
