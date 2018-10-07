@@ -3,7 +3,7 @@
     <tr>
       <th>No</th>
       <th>Nama</th>
-      <th>Username</th>
+      <th>Email</th>
       <th>Level</th>
       <th>Status</th>
       <th class="text-center">Actions</th>
@@ -20,7 +20,7 @@
     <tr>
       <td class="text-center">{{($k+1)}}</td>
       <td>{{$v->name}}</td>
-      <td>{{$v->username}}</td>
+      <td>{{$v->email}}</td>
       <td>{{$lv}}</td>
       <td class="text-center">
         @if ($v->status==0)

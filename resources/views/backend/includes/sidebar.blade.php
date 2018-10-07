@@ -55,9 +55,9 @@
           <li>
   					<a href="#" class="has-ul legitRipple"><i class="icon-profile"></i> <span>Tentang Radio</span></a>
   					<ul>
-  						<li class="{{strpos($request_path,'sejarah')!==false ? 'active':''}}"><a href="{{URL::to('/sejarah')}}">Sejarah</a></li>
-  						<li class="{{strpos($request_path,'visi-misi' )!==false? 'active':''}}"><a href="{{URL::to('/visi-misi')}}">Visi Misi</a></li>
-  						<li class="{{strpos($request_path,'hubungi-kami' )!==false? 'active':''}}"><a href="{{URL::to('/hubungi-kami')}}">Hubungi Kami</a></li>
+  						<li class="{{strpos($request_path,'sejarah-radio')!==false ? 'active':''}}"><a href="{{URL::to('/sejarah-radio')}}">Sejarah</a></li>
+  						<li class="{{strpos($request_path,'visi-misi-radio' )!==false? 'active':''}}"><a href="{{URL::to('/visi-misi-radio')}}">Visi Misi</a></li>
+  						<li class="{{strpos($request_path,'hubungi-kami-radio' )!==false? 'active':''}}"><a href="{{URL::to('/hubungi-kami-radio')}}">Hubungi Kami</a></li>
   						{{-- <li class="{{strpos($request_path,'faq' )!==false? 'active':''}}"><a href="{{URL::to('/faq')}}">FAQ</a></li> --}}
   					</ul>
   				</li>
@@ -69,7 +69,7 @@
                 $program=DB::table('program')->get();
             @endphp
               @foreach($program as $k => $v)
-  						  <li  class="{{strpos($request_path,$v->nama_program )!==false? 'active':''}}"><a href="{{URL::to('/program/'.strtolower(str_replace(' ','-',$v->nama_program)))}}">{{$v->nama_program}}</a></li>
+  						  <li  class="{{strpos($request_path,str_slug($v->nama_program ))!==false? 'active':''}}"><a href="{{URL::to('/program-radio/'.strtolower(str_replace(' ','-',$v->nama_program)))}}">{{$v->nama_program}}</a></li>
               @endforeach
   						<li  class="{{strpos($request_path,'program-form' )!==false? 'active':''}}"><a href="{{URL::to('/program-form/-1')}}">Tambah Program</a></li>
   					</ul>

@@ -49,16 +49,22 @@
                                             </li>
                                             <li class="sub-menu sub-menu-1 {{strpos($url,'info')!==false ? 'active' : ''}}"><a href="{{url('info')}}">Reksa Info</a>
                                                 <ul>
-                                                    <li><a href="{{url('info/kategori-1')}}">Kategori 1</a></li>
-                                                    <li><a href="{{url('info/kategori-2')}}">Kategori 2</a></li>
-                                                    <li><a href="{{url('info/kategori-3')}}">Kategori 3</a></li>
+                                                @php
+                                                    $kategori=\App\Models\CatBerita::all();
+                                                @endphp
+                                                @foreach ($kategori as $item)   
+                                                    <li><a href="{{url('info/'.str_slug($item->nama_kategori))}}">{{$item->nama_kategori}}</a></li>
+                                                @endforeach
                                                 </ul>
                                             </li>
                                             <li class="sub-menu sub-menu-1 {{strpos($url,'program')!==false ? 'active' : ''}}"><a href="{{url('program')}}">Program</a>
                                                 <ul>
-                                                    <li><a href="{{url('program/program-1')}}">Program 1</a></li>
-                                                    <li><a href="{{url('program/program-2')}}">Program 2</a></li>
-                                                    <li><a href="{{url('program/program-3')}}">Program 3</a></li>
+                                                    @php
+                                                        $program=\App\Models\Program::all();
+                                                    @endphp
+                                                    @foreach ($program as $item)   
+                                                        <li><a href="{{url('program/'.str_slug($item->nama_program))}}">{{$item->nama_program}}</a></li>
+                                                    @endforeach
                                                 </ul>
                                             </li>
                                             <li class="sub-menu sub-menu-1 {{strpos($url,'galeri')!==false ? 'active' : ''}}"><a href="#">Galeri</a>

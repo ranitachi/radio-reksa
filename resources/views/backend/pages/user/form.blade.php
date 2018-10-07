@@ -8,9 +8,9 @@
       </div>
     </div>
     <div class="form-group">
-      <label class="control-label col-lg-4">Username</label>
+      <label class="control-label col-lg-4">Email</label>
       <div class="col-lg-8">
-        <input type="text" class="form-control" placeholder="Username" name="username" id="username" autocomplete="off" value="{{($id!=-1 ? $det->username : '')}}">
+        <input type="text" class="form-control" placeholder="Email" name="email" id="email" autocomplete="off" value="{{($id!=-1 ? $det->email : '')}}">
       </div>
     </div>
     <div class="form-group">

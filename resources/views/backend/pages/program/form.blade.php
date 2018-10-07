@@ -37,7 +37,7 @@
               </center>
             </div> --}}
             <div id="data" style="padding:15px">
-              <form class="form-horizontal" action="{{$id==-1 ? URL::to('program') : URL::to('program/'.$id) }}" method="POST" id="form-program">
+              <form class="form-horizontal" action="{{$id==-1 ? URL::to('program-radio') : URL::to('program-radio/'.$id) }}" method="POST" id="form-program">
                 <fieldset class="content-group">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
 									@if ($id!=-1)
@@ -49,26 +49,7 @@
                       <input type="text" class="form-control" placeholder="Nama Program" name="nama_program" id="nama_program" autocomplete="off" value="{{($id!=-1 ? $det->nama_program : '')}}">
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label class="control-label col-lg-2">Bagian</label>
-                    <div class="col-lg-6">
-                      <select class="select2" name="id_bagian">
-                          <option value="-1">-Pilih-</option>
-                          @foreach ($div as $k => $v)
-                            @if ($id!=-1)
-                              @if ($det->id_bagian==$v->id)
-                                <option value="{{$det->id_bagian}}" selected="selected">{{$v->nama_bagian}}</option>
-															@else
-																<option value="{{$v->id}}">{{$v->nama_bagian}}</option>
-                              @endif
-                            @else
-                              <option value="{{$v->id}}">{{$v->nama_bagian}}</option>
-                            @endif
-                          @endforeach
-                        </optgroup>
-                      </select>
-                    </div>
-                  </div>
+                  
                   <input type="hidden" name="id_user" value="{{Auth::user()->id}}">
 									
                   <div class="form-group">

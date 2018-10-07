@@ -2,6 +2,7 @@
   <thead>
     <tr>
       <th class="text-center">No</th>
+      <th class="text-center">Poster</th>
       <th class="text-center">Nama Event</th>
       <th class="text-center">Lokasi</th>
       <th class="text-center">Tgl Event</th>
@@ -19,6 +20,7 @@
       @endphp
       <tr>
         <td class="text-center">{{($k+1)}}</td>
+        <td class="" style="width:200px;"><img style="max-height:100px;" src="{{(asset($v->pic))}}"></td>
         <td class="">{{$v->nama_event}}</td>
         <td class="text-center">{{$v->lokasi}}</td>
         <td class="text-center">{{$tgl}}</td>

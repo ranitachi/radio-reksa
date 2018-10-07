@@ -22,8 +22,8 @@
         </a>
 
         <ul class="dropdown-menu dropdown-menu-right">
-          <li><a href="#"><i class="icon-user-plus"></i> My Profile</a></li>
-          <li><a href="#"><i class="icon-cog5"></i> Change Password</a></li>
+          {{-- <li><a href="#"><i class="icon-user-plus"></i> My Profile</a></li>
+          <li><a href="#"><i class="icon-cog5"></i> Change Password</a></li> --}}
           <li class="divider"></li>
           <li>
               <a href="{{ url('/logout') }}">

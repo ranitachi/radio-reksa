@@ -10,7 +10,7 @@
 		<div class="page-header-content">
 			<div class="page-title">
 				<h4><span class="text-semibold">Radio Reksa Purwakarta</span></h4>
-				Menuju Bogor Kota Zakat 2020
+				Deg Deg Seer Aach
 			</div>
 		</div>
 
@@ -71,6 +71,20 @@
                     </div>
                   </div>
                   <div class="form-group">
+                    <label class="control-label col-lg-2">Poster</label>
+                    <div class="col-lg-6">
+											<div class="input-group">
+										   <span class="input-group-btn">
+										     <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+										       <i class="fa fa-picture-o"></i> Choose
+										     </a>
+										   </span>
+										   <input id="thumbnail" readonly class="form-control" type="text" name="pic" value="{{($id!=-1 ? $det->pic : '')}}">
+										 </div>
+										 <img id="holder" style="margin-top:15px;max-height:100px;" src="{{($id!=-1 ? asset($det->pic): '')}}">
+                    </div>
+                  </div>
+                  <div class="form-group">
                     <label class="control-label col-lg-2">Lokasi</label>
                     <div class="col-lg-6">
                       <input type="text" class="form-control" placeholder="Lokasi" name="lokasi" id="lokasi" autocomplete="off" value="{{($id!=-1 ? $det->lokasi : '')}}">
@@ -110,8 +124,10 @@
 	</div>
 @endsection
 @section('footscripts')
+  <script src="{{asset('/vendor/laravel-filemanager/js/lfm.js')}}"></script>
 	<script>
   $(document).ready(function(){
+      $('#lfm').filemanager('image', {prefix: '{{url("/")}}/laravel-filemanager'});
 	    $('.select2').select2();
 			var options = {
 				filebrowserImageBrowseUrl: APP_URL+'/laravel-filemanager?type=Images',

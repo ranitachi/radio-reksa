@@ -5,8 +5,8 @@
       <th>Images</th>
       <th>Title</th>
       <th>Description</th>
-      <th>Flag</th>
-      <th style="width:200px !important;">Category</th>
+      <th>Category</th>
+      <th style="width:200px !important;">FLag</th>
       <th class="text-center" style="width:100px !important;">Actions</th>
     </tr>
   </thead>

@@ -8,19 +8,20 @@
     </tr>
   </thead>
   <tbody>
-  @foreach ($cat as $k => $v)
-    <tr>
-      <td class="text-center">{{($k+1)}}</td>
-      <td>{{$v->nama_kategori}}</td>
-      <td>{{$v->desc}}</td>
+  @if (!is_null($cat))
+    @foreach ($cat as $k => $v)
+      <tr>
+        <td class="text-center">{{($k+1)}}</td>
+        <td>{{$v->nama_kategori}}</td>
+        <td>{{$v->desc}}</td>
 
-      <td class="text-center">
-        <a href="javascript:edit({{$v->id}})"><i class="icon-pencil5"></i></a>
-        <a href="javascript:hapus({{$v->id}})"><i class="icon-trash"></i></a>
-      </td>
-    </tr>
-  @endforeach
-
+        <td class="text-center">
+          <a href="javascript:edit({{$v->id}})"><i class="icon-pencil5"></i></a>
+          <a href="javascript:hapus({{$v->id}})"><i class="icon-trash"></i></a>
+        </td>
+      </tr>
+    @endforeach
+  @endif
   </tbody>
 </table>
 <style>

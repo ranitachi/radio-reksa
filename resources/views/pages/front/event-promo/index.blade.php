@@ -14,44 +14,21 @@
             </div>
         </h2>
 
-        <div class="thumb2">
-            <div class="thumbnail clearfix">
-                <figure class=""><img src="images/about06.jpg" alt=""></figure>
-                <div class="caption">
-                    <p class="style1">
-                        24 of January, 2014
-                    </p>
-                    <h3 class="c2"><a href="{{url('info/kategori-1/'.str_slug('Lorem ipsum dolor'))}}">Lorem ipsum dolor</a></h3>
-                            Ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor
-                </div>
-            </div>
-        </div>
-        <div class="line1"></div>
+        @foreach ($event as $item)   
             <div class="thumb2">
                 <div class="thumbnail clearfix">
-                    <figure class=""><img src="images/about07.jpg" alt=""></figure>
+                    <figure class=""><img src="{{asset($item->pic)}}" alt="" style="width:150px;"></figure>
                     <div class="caption">
                         <p class="style1">
-                            24 of January, 2014
+                            <i class="fa fa-calendar"></i> {{date('d F',strtotime($item->tanggal_event))}}, {{date('Y',strtotime($item->tanggal_event))}}
                         </p>
-                        <h3 class="c2"><a href="#">Lorem ipsum dolor</a></h3>
-                        Ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor
+                        <h3 class="c2"><a href="{{url('event-promo/event/'.str_slug($item->nama_event))}}">{{$item->nama_event}}</a></h3>
+                            {{substr(strip_tags($item->desc),0,200)}}
                     </div>
                 </div>
             </div>
             <div class="line1"></div>
-            <div class="thumb2">
-            <div class="thumbnail clearfix">
-                <figure class=""><img src="images/about10.jpg" alt=""></figure>
-                <div class="caption">
-                    <p class="style1">
-                        24 of January, 2014
-                    </p>
-                    <h3 class="c2"><a href="#">Lorem ipsum dolor</a></h3>
-                    Ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor
-                </div>
-            </div>
-        </div>
+        @endforeach
         <div class="line0"></div>
         
         </div>
@@ -61,52 +38,28 @@
         <div class="box2">
             <h2 class="c2">
                 <div class="over1">
-                <div class="corner1"></div>
-                <div class="txt1">Promo</div>
-                <div class="corner2"></div>
-            </div>
-        </h2>
-
-        <div class="thumb2">
-            <div class="thumbnail clearfix">
-                <figure class=""><img src="images/about06.jpg" alt=""></figure>
-                <div class="caption">
-                    <p class="style1">
-                        24 of January, 2014
-                    </p>
-                    <h3 class="c2"><a href="{{url('info/kategori-1/'.str_slug('Lorem ipsum dolor'))}}">Lorem ipsum dolor</a></h3>
-                            Ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor
+                    <div class="corner1"></div>
+                    <div class="txt1">Promo</div>
+                    <div class="corner2"></div>
                 </div>
-            </div>
-        </div>
-        <div class="line1"></div>
+            </h2>
+
+        @foreach ($promo as $item)   
             <div class="thumb2">
                 <div class="thumbnail clearfix">
-                    <figure class=""><img src="images/about07.jpg" alt=""></figure>
+                    <figure class=""><img src="{{asset($item->pic)}}" alt="" style="width:150px;"></figure>
                     <div class="caption">
                         <p class="style1">
-                            24 of January, 2014
+                            <i class="fa fa-calendar"></i> {{date('d F',strtotime($item->tanggal_event))}}, {{date('Y',strtotime($item->tanggal_event))}}
                         </p>
-                        <h3 class="c2"><a href="#">Lorem ipsum dolor</a></h3>
-                        Ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor
+                        <h3 class="c2"><a href="{{url('event-promo/event/'.str_slug($item->nama_promo))}}">{{$item->nama_promo}}</a></h3>
+                            {{substr(strip_tags($item->desc),0,200)}}
                     </div>
                 </div>
             </div>
             <div class="line1"></div>
-            <div class="thumb2">
-            <div class="thumbnail clearfix">
-                <figure class=""><img src="images/about10.jpg" alt=""></figure>
-                <div class="caption">
-                    <p class="style1">
-                        24 of January, 2014
-                    </p>
-                    <h3 class="c2"><a href="#">Lorem ipsum dolor</a></h3>
-                    Ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor
-                </div>
-            </div>
-        </div>
+        @endforeach
         <div class="line0"></div>
-        
         </div>
     </div>
 </div>

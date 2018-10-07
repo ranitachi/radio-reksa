@@ -1,6 +1,6 @@
 @extends('layouts.front')
 @section('title')
-    <title>Galeri Foro - Radio Reksa Purwakarta : 100.9 FM</title>
+    <title>Galeri Video - Radio Reksa Purwakarta : 100.9 FM</title>
 @endsection
 @section('konten')
 <div class="row">
@@ -11,148 +11,45 @@
         <div id="isotope-options">
             <ul id="isotope-filters" class="clearfix">
                 <li><a href="#" class="selected" data-filter="*">Show All</a></li> 
-                <li><a href="#" data-filter=".isotope-filter1">Category 1</a></li> 
-                <li><a href="#" data-filter=".isotope-filter2">Category 2</a></li> 
-                <li><a href="#" data-filter=".isotope-filter3">Category 3</a></li> 	             
+                
             </ul>            
         </div>
 
-        <ul class="thumbnails" id="isotope-items">		  
-            <li class="span4 isotope-element isotope-filter1">
-                <div class="thumb-isotope">
-                    <div class="thumbnail clearfix">
-                        <a href="images/blank.png">
-                            <figure>
-                                <img src="images/gallery01.jpg" alt=""><em></em>
-                            </figure>
-                            <div class="caption">							
-                                    Lorem ipsum dolor sit amet conse ctetur adipisicing eltsed  do  eiusmod tempor					
+        <ul class="thumbnails" id="isotope-items">
+            @foreach ($galeri as $item)
+            @php
+            if(strpos($item->url,'youtube')!==false)
+            {
+                $url = $item->url;
+                preg_match('/[\\?\\&]v=([^\\?\\&]+)/', $url, $matches);
+                $id = $matches[1];
+                $width = '370px';
+                $height = '200px';
+                $video='<iframe id="ytplayer" type="text/html" width="'.$width.'" height="'.$height.'"
+                        src="https://www.youtube.com/embed/'.$id.'?rel=0&showinfo=0&color=white&iv_load_policy=3"
+                        frameborder="0" allowfullscreen></iframe> ';
+            }
+            else
+                $video='';
+            @endphp
+                    <li class="span4 isotope-element">
+                        <div class="thumb-isotope">
+                            <div class="thumbnail clearfix">
+                                <a href="#">
+                                    <figure>
+                                        {!!$video!!}
+                                    </figure>
+                                    <div class="caption text-center">							
+                                        {!!$item->title!!}				
+                                    </div>
+                                </a>
+                                
                             </div>
-                        </a>
-                        
-                    </div>
-                </div>
-            </li>
-            <li class="span4 isotope-element isotope-filter2">
-                <div class="thumb-isotope">
-                    <div class="thumbnail clearfix">
-                        <a href="images/blank.png">
-                            <figure>
-                                <img src="images/gallery02.jpg" alt=""><em></em>
-                            </figure>
-                            <div class="caption">							
-                                    Lorem ipsum dolor sit amet conse ctetur adipisicing eltsed  do  eiusmod tempor					
-                            </div>
-                        </a>
-                        
-                    </div>
-                </div>
-            </li>
-            <li class="span4 isotope-element isotope-filter3">
-                <div class="thumb-isotope">
-                    <div class="thumbnail clearfix">
-                        <a href="images/blank.png">
-                            <figure>
-                                <img src="images/gallery03.jpg" alt=""><em></em>
-                            </figure>
-                            <div class="caption">							
-                                    Lorem ipsum dolor sit amet conse ctetur adipisicing eltsed  do  eiusmod tempor					
-                            </div>
-                        </a>
-                        
-                    </div>
-                </div>
-            </li>
-            <li class="span4 isotope-element isotope-filter1">
-                <div class="thumb-isotope">
-                    <div class="thumbnail clearfix">
-                        <a href="images/blank.png">
-                            <figure>
-                                <img src="images/gallery04.jpg" alt=""><em></em>
-                            </figure>
-                            <div class="caption">							
-                                    Lorem ipsum dolor sit amet conse ctetur adipisicing eltsed  do  eiusmod tempor					
-                            </div>
-                        </a>
-                        
-                    </div>
-                </div>
-            </li>
-            <li class="span4 isotope-element isotope-filter2">
-                <div class="thumb-isotope">
-                    <div class="thumbnail clearfix">
-                        <a href="images/blank.png">
-                            <figure>
-                                <img src="images/gallery05.jpg" alt=""><em></em>
-                            </figure>
-                            <div class="caption">							
-                                    Lorem ipsum dolor sit amet conse ctetur adipisicing eltsed  do  eiusmod tempor					
-                            </div>
-                        </a>
-                        
-                    </div>
-                </div>
-            </li>
-            <li class="span4 isotope-element isotope-filter3">
-                <div class="thumb-isotope">
-                    <div class="thumbnail clearfix">
-                        <a href="images/blank.png">
-                            <figure>
-                                <img src="images/gallery06.jpg" alt=""><em></em>
-                            </figure>
-                            <div class="caption">							
-                                    Lorem ipsum dolor sit amet conse ctetur adipisicing eltsed  do  eiusmod tempor					
-                            </div>
-                        </a>
-                        
-                    </div>
-                </div>
-            </li>
-            <li class="span4 isotope-element isotope-filter1">
-                <div class="thumb-isotope">
-                    <div class="thumbnail clearfix">
-                        <a href="images/blank.png">
-                            <figure>
-                                <img src="images/gallery07.jpg" alt=""><em></em>
-                            </figure>
-                            <div class="caption">							
-                                    Lorem ipsum dolor sit amet conse ctetur adipisicing eltsed  do  eiusmod tempor					
-                            </div>
-                        </a>
-                        
-                    </div>
-                </div>
-            </li>
-            <li class="span4 isotope-element isotope-filter3">
-                <div class="thumb-isotope">
-                    <div class="thumbnail clearfix">
-                        <a href="images/blank.png">
-                            <figure>
-                                <img src="images/gallery08.jpg" alt=""><em></em>
-                            </figure>
-                            <div class="caption">							
-                                    Lorem ipsum dolor sit amet conse ctetur adipisicing eltsed  do  eiusmod tempor					
-                            </div>
-                        </a>
-                        
-                    </div>
-                </div>
-            </li>
-            <li class="span4 isotope-element isotope-filter3">
-                <div class="thumb-isotope">
-                    <div class="thumbnail clearfix">
-                        <a href="images/blank.png">
-                            <figure>
-                                <img src="images/gallery09.jpg" alt=""><em></em>
-                            </figure>
-                            <div class="caption">							
-                                    Lorem ipsum dolor sit amet conse ctetur adipisicing eltsed  do  eiusmod tempor					
-                            </div>
-                        </a>
-                        
-                    </div>
-                </div>
-            </li>
+                        </div>
+                    </li>
+               
+            @endforeach		  
+            
         </ul>
         </div>
     </div>

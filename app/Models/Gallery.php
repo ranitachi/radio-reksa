@@ -9,7 +9,7 @@ class Gallery extends Model
 {
     //
     use SoftDeletes;
-    protected $table = 'gallery';
+    protected $table = 'galeri';
     protected $dates = ['deleted_at'];
     protected $fillable = ['title','picture','category','desc','flag','created_at','updated_at'];
 

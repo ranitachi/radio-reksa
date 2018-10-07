@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     protected $fillable = [
-        'name', 'username', 'password', 'level', 'status',
+        'name', 'email', 'password', 'level', 'status',
     ];
 
     protected $hidden = [
@@ -29,8 +29,4 @@ class User extends Authenticatable
       return $this->hasMany('App\Models\Staff');
     }
 
-    public function karir()
-    {
-      return $this->hasMany('App\Models\Karir');
-    }
 }

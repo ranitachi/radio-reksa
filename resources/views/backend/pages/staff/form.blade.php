@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-	<title>Staff | Radio Reksa Purwakarta</title>
+	<title>Penyiar Radio | Radio Reksa Purwakarta</title>
 @stop
 
 
@@ -10,7 +10,7 @@
 		<div class="page-header-content">
 			<div class="page-title">
 				<h4><span class="text-semibold">Radio Reksa Purwakarta</span></h4>
-				Menuju Bogor Kota Zakat 2020
+				Deg Deg Seer Aach
 			</div>
 		</div>
 
@@ -38,14 +38,14 @@
               </center>
             </div> --}}
             <div id="data" style="padding:15px">
-              <form class="form-horizontal" action="{{$id==-1 ? URL::to('staff') : URL::to('staff/'.$id) }}" method="POST" id="form-staff">
+              <form class="form-horizontal" action="{{$id==-1 ? URL::to('penyiar-radio') : URL::to('penyiar-radio/'.$id) }}" method="POST" id="form-staff">
                 <fieldset class="content-group">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
 									@if ($id!=-1)
 										{{ method_field('PATCH') }}
 									@endif
                   <div class="form-group">
-                    <label class="control-label col-lg-2">Nama Staff</label>
+                    <label class="control-label col-lg-2">Nama Penyiar</label>
                     <div class="col-lg-6">
                       <input type="text" class="form-control" placeholder="Nama" name="nama" id="nama" autocomplete="off" value="{{($id!=-1 ? $det->nama : '')}}">
                     </div>
@@ -66,26 +66,7 @@
 										 <img id="holder" style="margin-top:15px;max-height:100px;" src="{{($id!=-1 ? asset($det->photo): '')}}">
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label class="control-label col-lg-2">Jabatan</label>
-                    <div class="col-lg-6">
-                      <select class="select2" name="id_jabatan">
-                          <option value="-1">-Pilih-</option>
-                          @foreach ($jabatan as $k => $v)
-                            @if ($id!=-1)
-                              @if ($det->id_jabatan==$v->id)
-                                <option value="{{$det->id_jabatan}}" selected="selected">{{$v->nama_jabatan}}</option>
-															@else
-																<option value="{{$v->id}}">{{$v->nama_jabatan}}</option>
-                              @endif
-                            @else
-                              <option value="{{$v->id}}">{{$v->nama_jabatan}}</option>
-                            @endif
-                          @endforeach
-                        </optgroup>
-                      </select>
-                    </div>
-                  </div>
+                  
                   <div class="form-group">
                     <label class="control-label col-lg-2">User</label>
                     <div class="col-lg-6">

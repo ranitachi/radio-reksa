@@ -4,7 +4,42 @@
 @endsection
 @section('konten')
 <div class="row">
-    <div class="span4">
+    @foreach ($cat as $item)
+        <div class="span4">
+            <div class="box2">
+                <h2 class="c2">
+                    <div class="over1">
+                    <div class="corner1"></div>
+                    <div class="txt1">{{$item->nama_kategori}}</div>
+                    <div class="corner2"></div>
+                </div>
+            </h2>
+            @php
+                $x=1;
+            @endphp
+            @foreach ($berita[$item->id] as $it_b)
+                @if ($x<=5)
+                    <div class="thumb2">
+                        <div class="thumbnail clearfix">
+                            <figure class=""><img src="{{asset($it_b->file)}}" alt=""></figure>
+                            <div class="caption">
+                                <p class="style1">
+                                    {{date('d F',strtotime($it_b->created_at))}}, {{date('Y',strtotime($it_b->created_at))}}
+                                </p>
+                                <h3 class="c2"><a href="{{url('info/'.str_slug($item->nama_kategori).'/'.str_slug($it_b->title))}}" onclick="addview({{$it_b->id}})">{{$it_b->title}}</a></h3>
+                                    {{substr(strip_tags($it_b->desc),0,150)}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="line1"></div>
+                @endif
+                @php
+                    $x++;
+                @endphp
+            @endforeach
+        </div>    
+    @endforeach
+    {{-- <div class="span4">
         <div class="box2">
             <h2 class="c2">
                 <div class="over1">
@@ -162,7 +197,7 @@
         <div class="text-right"><a href="{{url('info')}}" class="button1 c2">Info Lain</a></div>
         
         </div>
-    </div>
+    </div> --}}
 </div>
 @endsection
 
@@ -172,4 +207,15 @@
     background:#fff !important;
 }
 </style> 
+<script>
+function addview(id)
+{
+    $.ajax({
+        url : '{{url("/")}}/addviewinfo/'+id,
+        success : function(a){
+
+        }
+    });
+}
+</script>
 @endsection

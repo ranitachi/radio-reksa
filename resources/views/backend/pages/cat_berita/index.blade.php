@@ -10,7 +10,7 @@
 		<div class="page-header-content">
 			<div class="page-title">
 				<h4><span class="text-semibold">Radio Reksa Purwakarta</span></h4>
-				Menuju Bogor Kota Zakat 2020
+				Deg Deg Seer Aach
 			</div>
 		</div>
 
@@ -58,7 +58,7 @@ $(document).ready(function(){
 
   loadData(-1);
 
-	$('button#confirmbutton').click(function(){
+	$('button#confirmbutton').one('click',function(){
 
 		var form_action = $("#modal-confirm").find("form").attr("action");
 		var form_method = $("#modal-confirm").find("form").attr("method");
@@ -71,9 +71,9 @@ $(document).ready(function(){
     }).done(function(data){
         // getPageData();
 				if(form_method=="PUT")
-					var txt = "Nama Divisi Berhasil Di Edit";
+					var txt = "Nama Kategori Berhasil Di Edit";
 				else
-					var txt = "Nama Divisi Berhasil Di Tambah";
+					var txt = "Nama Kategori Berhasil Di Tambah";
 
         $('#modal-confirm').modal('hide');
 				    new PNotify({
@@ -127,7 +127,7 @@ function hapus(id)
 {
 	$('div#modal-hapus').modal('show');
 
-	$('#hapusbutton').click(function(){
+	$('#hapusbutton').one('click',function(){
 		// alert(id);
 
 		$.ajax({

@@ -8,36 +8,23 @@
                         <div class="box1">
 
                         <div id="slider" class="clearfix">
-                        <div id="camera_wrap">
-                            <div data-src="images/slide01.jpg">
-                                <div class="camera_caption fadeIn">
-                                    <div class="txt1">
-                                        Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
-                                    </div>			
-                                </div>     
-                            </div>
-                            <div data-src="images/slide02.jpg">
-                                <div class="camera_caption fadeIn">
-                                    <div class="txt1">
-                                        Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
-                                    </div>			
-                                </div>     
-                            </div>
-                            <div data-src="images/slide03.jpg">
-                                <div class="camera_caption fadeIn">
-                                    <div class="txt1">
-                                        Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
-                                    </div>			
-                                </div>     
-                            </div>
-                            <div data-src="images/slide04.jpg">
-                                <div class="camera_caption fadeIn">
-                                    <div class="txt1">
-                                        Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
-                                    </div>			
-                                </div>     
-                            </div>
-                        </div>	
+                            <div id="camera_wrap">
+                                @php
+                                    $slider = \App\Models\Slider::where('flag',1)->orderBy('created_at','desc')->limit(4)->get();
+                                    // dd($slider);
+                                @endphp
+                                @foreach ($slider as $item)
+                                    
+                                    <div data-src="{{asset($item->picture)}}">
+                                        <div class="camera_caption fadeIn">
+                                            <div class="txt1">
+                                                {{$item->title}}
+                                            </div>			
+                                        </div>     
+                                    </div>
+                                @endforeach
+                                
+                            </div>	
                         </div>
 
                         <h2 class="c1"><div class="over1"><div class="corner1"></div><div class="txt1">Event & Promo</div><div class="corner2"></div></div></h2>
@@ -48,70 +35,61 @@
                         <div class="carousel-box row">
                             <div class="inner span8">			
                                 <div class="carousel main">
+                                    @php
+                                        $event=\App\Models\Event::where('flag',1)->orderBy('created_at','desc')->limit(2)->get();
+                                        $promo=\App\Models\Promo::where('flag',1)->orderBy('created_at','desc')->limit(2)->get();
+                                        $ev_pr=array();
+                                        foreach($event as $k=>$v)
+                                        {
+                                            $tgl=$v->tanggal_event;
+                                            $ev_pr[$tgl][]=$v;
+                                        }
+                                        foreach($promo as $k=>$v)
+                                        {
+                                            $tgl=$v->tanggal_event;
+                                            $ev_pr[$tgl][]=$v;
+                                        }
+                                        krsort($ev_pr);
+                                        // dd($ev_pr);
+                                    @endphp
                                     <ul>
-                                        <li>
-                                            <div class="thumb-carousel">
-                                                <div class="thumbnail clearfix">
-                                                    <a href="#">
-                                                        <figure>
-                                                            <img src="images/carousel01.jpg" alt="">
-                                                        </figure>
-                                                        <div class="caption">
-                                                            <div class="txt1">
-                                                                Suspendisse enim arcu
-                                                            </div>
-                                                            <div class="txt2">
-                                                                7 / 24 / 2013
-                                                            </div>
-                                                            <div class="over1"></div>
-                                                            <div class="over2"></div>
-                                                        </div>								
-                                                    </a>								
+                                        @foreach ($ev_pr as $v)
+                                            @foreach ($v as $item)
+                                           
+                                            <li>
+                                                <div class="thumb-carousel">
+                                                    <div class="thumbnail clearfix">
+                                                        <a href="#">
+                                                            <figure>
+                                                                <img src="{{asset($item->pic)}}" alt="">
+                                                            </figure>
+                                                            <div class="caption">
+                                                                <div class="txt1">
+                                                                    @php
+                                                                        if (isset($item->nama_event))
+                                                                        {
+                                                                            echo $item->nama_event;
+                                                                        }
+                                                                        else if(isset($item->nama_promo))
+                                                                        {
+                                                                            echo $item->nama_promo;
+                                                                        }
+                                                                        else
+                                                                            echo '-';
+                                                                    @endphp
+                                                                </div>
+                                                                <div class="txt2">
+                                                                    {{date('d/m/Y', strtotime($item->tanggal_event))}}
+                                                                </div>
+                                                                <div class="over1"></div>
+                                                                <div class="over2"></div>
+                                                            </div>								
+                                                        </a>								
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="thumb-carousel">
-                                                <div class="thumbnail clearfix">
-                                                    <a href="#">
-                                                        <figure>
-                                                            <img src="images/carousel02.jpg" alt="">
-                                                        </figure>
-                                                        <div class="caption">
-                                                            <div class="txt1">
-                                                                Suspendisse enim arcu
-                                                            </div>
-                                                            <div class="txt2">
-                                                                7 / 24 / 2013
-                                                            </div>
-                                                            <div class="over1"></div>
-                                                            <div class="over2"></div>
-                                                        </div>								
-                                                    </a>								
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="thumb-carousel">
-                                                <div class="thumbnail clearfix">
-                                                    <a href="#">
-                                                        <figure>
-                                                            <img src="images/carousel03.jpg" alt="">
-                                                        </figure>
-                                                        <div class="caption">
-                                                            <div class="txt1">
-                                                                Suspendisse enim arcu
-                                                            </div>
-                                                            <div class="txt2">
-                                                                7 / 24 / 2013
-                                                            </div>
-                                                            <div class="over1"></div>
-                                                            <div class="over2"></div>
-                                                        </div>								
-                                                    </a>								
-                                                </div>
-                                            </div>
-                                        </li>																
+                                            </li>
+                                             @endforeach  
+                                        @endforeach															
                                     </ul>
                                 </div>
                             </div>
@@ -120,51 +98,34 @@
 
                         <h2 class="c2"><div class="over1"><div class="corner1"></div><div class="txt1">Info Terbaru</div><div class="corner2"></div></div></h2>
 
+                        @php
+                            $berita=\App\Models\Berita::where('flag',1)->with('cat_berita')->orderBy('created_at','desc')->limit(5)->get();
+                            $x=1;
+                        @endphp
+                        @foreach ($berita as $item)
+                        
                         <div class="date1">
-                            <div class="txt1">24<br><span>dec</span></div>
+                            <div class="txt1">{{date('d',strtotime($item->created_at))}}<br><span>{{strtolower(date('M',strtotime($item->created_at)))}}</span></div>
                             <div class="txt2">
-                                <h3 class="c2"><a href="#">Lorem ipsum dolor sit amet conse ctetur adipisicing elit.</a></h3>
+                                <h3 class="c2"><a href="#">{{$item->title}}</a></h3>
                                 <div>
-                                    Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <a href="#" class="button0 c2">read more</a>
+                                    {{substr(strip_tags($item->desc),0,200)}}<br>
+                                    <a href="{{url('info/'.str_slug($item->cat_berita->nama_kategori).'/'.str_slug($item->title))}}" class="button0 c2">Selengkapnya</a>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="line1"></div>
-
-                        <div class="date1">
-                            <div class="txt1">4<br><span>dec</span></div>
-                            <div class="txt2">
-                                <h3 class="c2"><a href="#">Lorem ipsum dolor sit amet conse ctetur adipisicing elit.</a></h3>
-                                <div>
-                                    Suspendisse enim arcu, convallis non orem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <a href="#" class="button0 c2">read more</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="line1"></div>
-
-                        <div class="date1">
-                            <div class="txt1">12<br><span>now</span></div>
-                            <div class="txt2">
-                                <h3 class="c2"><a href="#">Lorem ipsum dolor sit amet conse ctetur adipisicing elit.</a></h3>
-                                <div>
-                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat consectetuer adipiscing elit. Nunc suscipit. Suspendisse enim arcu, convallis non, cursus sed, dignissim et, est. Aenean semper aliquet libero. In ante velit, cursus ut, ultrices vitae, tempor ut, risus. Duis pulvinar. Vestibulum vel pede at sapien sodales mattis.  <a href="#" class="button0 c2">read more</a>
-                                </div>
-                            </div>
-                        </div>
+                        @if($x!=$berita->count())
+                            <div class="line1"></div>
+                        @endif
+                        @php
+                            $x++;
+                        @endphp
+                        @endforeach
 
                         <div class="line0"></div>
 
-                        <div class="text-right"><a href="#" class="button1 c2">more news</a></div>
-
-
-
-
-
-
-
-
+                        <div class="text-right"><a href="{{url('info')}}" class="button1 c2">info lainnya</a></div>
 
                         </div>
                         </div>

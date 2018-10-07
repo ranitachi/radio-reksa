@@ -3,7 +3,6 @@
     <tr>
       <th class="text-center">No</th>
       <th class="text-center">Nama Program</th>
-      <th class="text-center">Bagian</th>
       <th class="text-center">Logo</th>
       <th class="text-center">Deskripsi</th>
       <th class="text-center">Actions</th>
@@ -14,7 +13,6 @@
       <tr>
         <td class="text-center">{{($k+1)}}</td>
         <td>{{($v->nama_program)}}</td>
-        <td>{{(isset($div[$v->id_bagian]) ? $div[$v->id_bagian]->nama_bagian : '')}}</td>
         <td class="text-center"><img src="{{asset($v->logo)}}" style="height:100px;"></td>
         <td class="text-center">{{substr(strip_tags($v->desc),0,50)}}
         </td>

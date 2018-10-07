@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-	<title>Staff | Radio Reksa Purwakarta</title>
+	<title>Penyiar Radio | Radio Reksa Purwakarta</title>
 @stop
 
 
@@ -10,7 +10,7 @@
 		<div class="page-header-content">
 			<div class="page-title">
 				<h4><span class="text-semibold">Radio Reksa Purwakarta</span></h4>
-				Menuju Bogor Kota Zakat 2020
+				Deg Deg Seer Aach
 			</div>
 		</div>
 

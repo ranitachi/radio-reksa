@@ -19,10 +19,12 @@
                         <div class="bot1_block">
                             <div class="bot1_title">Program Radio</div>
                             <ul class="ul0">
-                            <li><a href="#">Program 1</a></li>
-                            <li><a href="#">Program 1</a></li>
-                            <li><a href="#">Program 1</a></li>
-                            <li><a href="#">Program 1</a></li>
+                            @php
+                                $program=\App\Models\Program::all();
+                            @endphp
+                            @foreach ($program as $item)
+                                <li><a href="{{url('program/'.str_slug($item->nama_program))}}">{{$item->nama_program}}</a></li>
+                            @endforeach
                             </ul>
                         </div>
                     </div>
