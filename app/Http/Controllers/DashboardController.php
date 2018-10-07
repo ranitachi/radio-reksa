@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Models\Berita;
 use App\Models\Program;
-
+use Tracker;
 class DashboardController extends Controller
 {
     public function __construct()
@@ -19,7 +19,14 @@ class DashboardController extends Controller
     {
         $program=Program::all();
         $berita=Berita::where('flag',1)->count();
-        return view('backend.pages.dashboard.index')
+
+        $pageViews = Tracker::pageViews(60 * 24 * 120);
+
+        $pageViewsPerCountry = Tracker::pageViewsByCountry(60 * 24 * 120);
+
+        $allData = [$pageViews,$pageViewsPerCountry];
+
+        return view('backend.pages.dashboard.index',compact('crumbs','allData','selected_period'))
         ->with('program', $program)
         ->with('berita', $berita);
     }

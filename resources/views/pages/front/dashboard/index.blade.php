@@ -132,11 +132,11 @@
                         <div class="span4">
                         <div class="box2">
 
-                        <div class="thumb1">
+                        {{-- <div class="thumb1">
                             <div class="thumbnail clearfix">
                                 <a href="#"><figure class=""><img src="images/home01.jpg" alt=""></figure></a>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <h2 class="c3"><div class="over1"><div class="corner1"></div><div class="txt1">Tangga Musik</div><div class="corner2"></div></div></h2>
 
@@ -200,7 +200,7 @@
 
                         <div class="line0"></div>
 
-                        <div class="text-right"><a href="#" class="button1 c3">more news</a></div>
+                        {{-- <div class="text-right"><a href="#" class="button1 c3">more news</a></div> --}}
 
 
 

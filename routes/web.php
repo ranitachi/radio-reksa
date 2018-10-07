@@ -22,7 +22,7 @@ Route::get('logout', function(){
 Route::get('/', 'FrontController@index');
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+
 
 //tentang kami
 Route::get('sejarah', 'FrontController@sejarah')->name('sejarah');
@@ -48,7 +48,7 @@ Route::get('galeri-video', 'FrontController@video')->name('video');
 // ------------ BACKEND ROUTES -------------------
 
 Route::get('/beranda', 'DashboardController@index')->name('beranda.index');
-
+Route::get('/home', 'DashboardController@index')->name('home');
 Route::get('cat-data/{id}', 'Backend\CatBeritaController@data')->name('cat_berita.data')->middleware('auth');
 Route::get('cat-form/{id}', 'Backend\CatBeritaController@form')->name('cat_berita.form')->middleware('auth');
 Route::resource('cat-berita','Backend\CatBeritaController')->middleware('auth');
@@ -93,17 +93,17 @@ Route::resource('user','Backend\UserController');
 Route::get('user-data/{id}', 'Backend\UserController@data')->name('user.data');
 Route::get('user-form/{id}', 'Backend\UserController@form')->name('user.form');
 
-Route::resource('testimoni','TestimonyController');
-Route::get('testimoni-data/{id}', 'TestimonyController@data')->name('testimoni.data');
-Route::get('testimoni-form/{id}', 'TestimonyController@form')->name('testimoni.form');
+Route::resource('testimoni','Backend\TestimonyController');
+Route::get('testimoni-data/{id}', 'Backend\TestimonyController@data')->name('testimoni.data');
+Route::get('testimoni-form/{id}', 'Backend\TestimonyController@form')->name('testimoni.form');
 
 Route::resource('penyiar-radio','Backend\StaffController')->middleware('auth');
 Route::get('staff-data/{id}', 'Backend\StaffController@data')->name('staff.data')->middleware('auth');
 Route::get('staff-form/{id}', 'Backend\StaffController@form')->name('staff.form')->middleware('auth');
 
-Route::resource('hubungi-kami','ContactController');
-Route::get('hubungi-kami-data/{id}', 'ContactController@data')->name('hubungi-kami.data');
-Route::get('hubungi-kami-form/{id}', 'ContactController@form')->name('hubungi-kami.form');
+Route::resource('hubungi-kami','Backend\ContactController');
+Route::get('hubungi-kami-data/{id}', 'Backend\ContactController@data')->name('hubungi-kami.data');
+Route::get('hubungi-kami-form/{id}', 'Backend\ContactController@form')->name('hubungi-kami.form');
 
 Route::resource('video','Backend\VideoController')->middleware('auth');
 Route::get('video-data/{id}', 'Backend\VideoController@data')->name('video.data')->middleware('auth');

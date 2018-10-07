@@ -57,7 +57,7 @@
   					<ul>
   						<li class="{{strpos($request_path,'sejarah-radio')!==false ? 'active':''}}"><a href="{{URL::to('/sejarah-radio')}}">Sejarah</a></li>
   						<li class="{{strpos($request_path,'visi-misi-radio' )!==false? 'active':''}}"><a href="{{URL::to('/visi-misi-radio')}}">Visi Misi</a></li>
-  						<li class="{{strpos($request_path,'hubungi-kami-radio' )!==false? 'active':''}}"><a href="{{URL::to('/hubungi-kami-radio')}}">Hubungi Kami</a></li>
+  						<li class="{{strpos($request_path,'hubungi-kami' )!==false? 'active':''}}"><a href="{{URL::to('/hubungi-kami')}}">Hubungi Kami</a></li>
   						{{-- <li class="{{strpos($request_path,'faq' )!==false? 'active':''}}"><a href="{{URL::to('/faq')}}">FAQ</a></li> --}}
   					</ul>
   				</li>
@@ -96,6 +96,9 @@
             </ul>
           </li>
           
+          <li class="{{(strtok($request_path, '-') =='testimoni' ? 'active': '')}}">
+  					<a href="{{URL::to('/testimoni')}}" class="legitRipple"><i class="icon-bubbles3"></i> <span>Testimoni</span></a>
+  				</li>
           <li class="{{(strtok($request_path, '-') =='event' ? 'active': '')}}">
   					<a href="{{URL::to('/event')}}" class="legitRipple"><i class="icon-calendar2"></i> <span>Event</span></a>
   				</li>
