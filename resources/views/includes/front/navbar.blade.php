@@ -52,7 +52,10 @@
                                         <li><a href="{{$tw}}"><img src="{{asset('images/social_ic2.png')}}"></a></li>	    
                                     </ul>
                                 </div>
-                                <div class="listen_live_wrapper"><a href="#" class="listen_live"><img src="{{asset('images/listen_live.png')}}" alt=""></a></div>	
+                                <div class="listen_live_wrapper">
+                                        {{-- <audio src="http://sgp2.onlivestreaming.net:2199/start/reksaradio/" preload="auto" controls></audio> --}}
+                                        <audio src="http://sgp2.onlivestreaming.net:10090/stream" preload="auto" controls></audio>
+                                </div>	
                             </div>
                         </div>	
                     </div>	
